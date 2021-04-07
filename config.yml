@@ -1,0 +1,68 @@
+# This is a configuration that the loader
+# script will use while running puppeteer.
+# Refer to inline comments for what each
+# property means.
+# DO NOT change property names, only update
+# the values.
+
+# Show log messages for every event happening
+# while script runs.
+enable_logging: true
+
+# Configuration for source data
+source_data:
+  # Seperator used to separate columns in provided data file.
+  column_separator: '|'
+
+  # Trade type defined for Type select field within
+  # Add trade modal dialog.
+  trade_type: 'discrepant'
+
+  # Zero-based index of columns `date`, `price` & `quantity`
+  # in the provided data file.
+  columns:
+    date: 0
+    price: 3
+    quantity: 2
+
+# Configuraton for Zerodha Console Page
+webpage:
+  # When you launch Chrome instance with remote debugging
+  # the URL logged in the command line is to be provided here.
+  # Learn more at https://blog.chromium.org/2011/05/remote-debugging-with-chrome-developer.html
+  debug_url: 'ws://127.0.0.1:9222/devtools/browser/06dcce46-7863-49ae-b053-c504a610195a'
+
+  # This is the base path of Zerodha Console page.
+  # You can provide the full path or the starting path
+  # and it will still work.
+  base_url: 'https://console.zerodha.com/portfolio/holdings'
+
+  # CSS selectors for elements present on Zerodha Console page.
+  # Usually you won't need to change these values unless Zerodha
+  # updates the layout of their Console page in which case
+  # you'd need to inspect their webpage and identify selectors again.
+  # While determining selectors, be as specific as possible.
+  selectors:
+    # Add trade button
+    add_trade_button: 'button.add-external-trade'
+
+    # Date input field within Add trade modal dialog
+    date_input: '.mx-datepicker input[name="date"]'
+
+    # Average Price input field within Add trade modal dialog
+    price_input: '.su-input-group input[label="Avg. price"]'
+
+    # Quantity input field within Add trade modal dialog
+    quantity_input: '.su-input-group input[label="Qty."]'
+
+    # Trade Type select field within Add trade modal dialog
+    type_select: '.su-input-group select'
+
+    # Add button withinn Add trade modal dialog
+    add_button: 'button[type="submit"]'
+
+    # Trade add success notification
+    success_notification: '.su-toast-groups .su-toast-item.success.info'
+
+    # Notification close button
+    success_notification_close: '.su-toast-groups .su-toast-item.success.info .icon.icon-times.close'
